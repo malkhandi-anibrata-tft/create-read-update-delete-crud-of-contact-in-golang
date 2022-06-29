@@ -2,6 +2,7 @@ package database
 
 import (
 	"crud/entity"
+	"fmt"
 	"log"
 
 	"github.com/jinzhu/gorm"
@@ -15,6 +16,8 @@ func Connect(connectionString string) error {
 	var err error
 	Connector, err = gorm.Open("mysql", connectionString)
 	if err != nil {
+
+		fmt.Println("error in connect database", err)
 		return err
 	}
 	log.Println("Connection was successful!!")
